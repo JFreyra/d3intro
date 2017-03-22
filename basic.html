@@ -14,16 +14,34 @@
   <header><title>D3</title>
   </header>
   <body>
+    <h2> Static </h2>
     <div class="chart">
-      <div style="width: 40px;">4</div>
-      <div style="width: 80px;">8</div>
-      <div style="width: 150px;">15</div>
-      <div style="width: 160px;">16</div>
-      <div style="width: 230px;">23</div>
-      <div style="width: 420px;">42</div>
+      <div style="width: 10px;">1</div>
+      <div style="width: 10px;">1</div>
+      <div style="width: 10px;">1</div>
+      <div style="width: 10px;">1</div>
+      <div style="width: 10px;">1</div>
+      <div style="width: 10px;">1</div>
     </div>
-      
+    <br>
+    <h2> Dynamic </h2>
+    <div class="dynamic"></div>
 
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <script>
+      var dynamic = d3.select("dynamic");
+      var info = [5,6,15,16,20,42];
+
+      var createBars = function() {
+          dynamic.selectAll("div")
+             .data(info)
+             .enter()
+             .append("div")
+             .style("width", function(d){ return d + "px";})
+
+      };
+    </script>
+
   </body>
 </html>
